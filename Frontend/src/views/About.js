@@ -57,7 +57,7 @@ const About = () => {
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>
-                            <Button variant="success">Ir Repositorio</Button>
+                            <Button variant="success" href={process.env.REACT_APP_URL_REPO}>Ir Repositorio</Button>
                         </Card.Footer>
                     </Card></Col>
             </Row>

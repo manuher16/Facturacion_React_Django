@@ -23,6 +23,10 @@ const Totals = (props) => {
 
             <Card.Text>
                 <Row>
+                    <Col>Subtotal </Col>
+                    <Col>{new Intl.NumberFormat('es-HN', { style: 'currency', currency: 'HNL' }).format(subtotal)}</Col>
+                </Row>
+                <Row>
                     <Col> Impuestos </Col>
                     <Col> +{new Intl.NumberFormat('es-HN', { style: 'currency', currency: 'HNL' }).format(
                         calculateImpuestos())}</Col>
@@ -31,10 +35,7 @@ const Totals = (props) => {
                     <Col>Descuento {descuento.porcentaje * 100}%</Col>
                     <Col> -{new Intl.NumberFormat('es-HN', { style: 'currency', currency: 'HNL' }).format(descuento.porcentaje * subtotal)}</Col>
                 </Row>
-                <Row>
-                    <Col>Subtotal </Col>
-                    <Col>{new Intl.NumberFormat('es-HN', { style: 'currency', currency: 'HNL' }).format(subtotal)}</Col>
-                </Row>
+
                 <hr />
                 <Row>
                     <Col>Total </Col>

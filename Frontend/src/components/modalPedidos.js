@@ -92,14 +92,15 @@ const ModalPedidos = (props) => {
                         </Card.Header>
                         <Card.Body>
                             <Card.Text>
-                                Impuestos {new Intl.NumberFormat('es-HN', { style: 'currency', currency: 'HNL' }).format(calculateTotalImpuesto())}
-                            </Card.Text>
-                            <Card.Text>
-                                Descuento  {new Intl.NumberFormat('es-HN', { style: 'currency', currency: 'HNL' }).format(factura.descuento.porcentaje * calculetaSubTotal())}
-                            </Card.Text>
-                            <Card.Text>
                                 Subtotal:  {new Intl.NumberFormat('es-HN', { style: 'currency', currency: 'HNL' }).format(calculetaSubTotal())}
                             </Card.Text>
+                            <Card.Text>
+                                Impuestos +{new Intl.NumberFormat('es-HN', { style: 'currency', currency: 'HNL' }).format(calculateTotalImpuesto())}
+                            </Card.Text>
+                            <Card.Text>
+                                Descuento  -{new Intl.NumberFormat('es-HN', { style: 'currency', currency: 'HNL' }).format(factura.descuento.porcentaje * calculetaSubTotal())}
+                            </Card.Text>
+
                             <hr />
                             <Card.Text>
                                 <h4>Total {new Intl.NumberFormat('es-HN', { style: 'currency', currency: 'HNL' }).format(calculetaTotal())}</h4>
