@@ -8,7 +8,8 @@ from .models import Pedido
 from .models import Producto
 from .models import Impuesto
 from .models import Descuento
-
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 import json
 
 
@@ -395,3 +396,24 @@ def getTotales(req):
         for factura in resFacturas:
             TotalIngreso += factura.total
         return JsonResponse({'TotalIngreso': TotalIngreso, 'TotalProductosVendidos': totalProdcutosVendidos, "productoMasVendido": productoMasVendido})
+
+
+@csrf_exempt
+def sendEmailTwilio(req):
+
+    message = Mail(
+        from_email='orson.manuel@gmail.com',
+        to_emails='orson.manuel@gmail.com',
+        subject='Sending with Twilio SendGrid is Fun',
+        html_content='<strong>and easy to do anywhere, even with Python</strong>')
+    try:
+        sg = SendGridAPIClient(
+            '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')
+        response = sg.send(message)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+        return JsonResponse({'status': True})
+    except Exception as e:
+        print(e.message)
+        return JsonResponse({'status': False})

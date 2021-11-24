@@ -70,4 +70,5 @@ urlpatterns = [
     path('descuentos', views.getAllDescuentos),
     path('pedido/<int:id>/cantidad', views.setCantidadIdPedido),
     path('totales', views.getTotales),
+    path('sendEmail', views.sendEmailTwilio),
 ]
